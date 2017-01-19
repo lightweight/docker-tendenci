@@ -47,6 +47,7 @@ function install_python_elements()
     $VIRTUALENV "$TENDENCI_VIRTUALENV"
     # shellcheck source=/dev/null
     source "$TENDENCI_VIRTUALENV/bin/activate"
+    $PIP install --upgrade pip
     $PIP install "Django>=1.8,<1.9"
 
     # Installing tendenci

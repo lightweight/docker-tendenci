@@ -1,5 +1,7 @@
-FROM ubuntu:16.04
-MAINTAINER frenchbeard <frenchbeardsec@gmail.com>
+FROM ubuntu:xenial
+
+MAINTAINER Dave Lane <dave@davelane.nz>
+# modified from that by MAINTAINER frenchbeard <frenchbeardsec@gmail.com>
 
 ENV TENDENCI_VERSION=7.2 \
     TENDENCI_USER="tendenci" \
@@ -11,6 +13,18 @@ ENV TENDENCI_INSTALL_DIR="${TENDENCI_HOME}/install" \
     TENDENCI_DATA_DIR="${TENDENCI_HOME}/data" \
     TENDENCI_BUILD_DIR="${TENDENCI_HOME}/build" \
     APP_NAME="default"
+
+ENV APT_SERVER http://ucmirror.canterbury.ac.nz/ubuntu
+ENV APT_FILE sources.list
+ENV UBUNTU_NAME xenial
+#
+# add local mirror to reduce build time :)
+RUN echo "deb $APT_SERVER ${UBUNTU_NAME} main universe" > /etc/apt/${APT_FILE}
+RUN echo "deb $APT_SERVER ${UBUNTU_NAME}-updates main universe" >> /etc/apt/${APT_FILE}
+RUN echo "deb $APT_SERVER ${UBUNTU_NAME}-security main universe" >> /etc/apt/${APT_FILE}
+RUN echo "deb-src $APT_SERVER ${UBUNTU_NAME} main universe" >> /etc/apt/${APT_FILE}
+RUN echo "deb-src $APT_SERVER ${UBUNTU_NAME}-updates main universe" >> /etc/apt/${APT_FILE}
+RUN echo "deb-src $APT_SERVER ${UBUNTU_NAME}-security main universe" >> /etc/apt/${APT_FILE}
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
