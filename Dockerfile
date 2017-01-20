@@ -3,8 +3,8 @@ FROM ubuntu:xenial
 MAINTAINER Dave Lane <dave@davelane.nz>
 # modified from that by MAINTAINER frenchbeard <frenchbeardsec@gmail.com>
 
-ENV TENDENCI_VERSION=7.2.58 \
-    TENDENCI_USER="tendenci" \
+# note, the version is not relevant here...
+ENV TENDENCI_USER="tendenci" \
     TENDENCI_HOME="/home/tendenci" \
     TENDENCI_LOG_DIR="/var/log/tendenci"
 
