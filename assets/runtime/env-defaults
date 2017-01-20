@@ -1,4 +1,4 @@
-export TENDENCI_VERSION=7.2.34
+export TENDENCI_VERSION=7.2.58
 export TENDENCI_USER="tendenci"
 export TENDENCI_HOME="/home/${TENDENCI_USER}"
 export TENDENCI_LOG_DIR="${TENDENCI_HOME}/log"

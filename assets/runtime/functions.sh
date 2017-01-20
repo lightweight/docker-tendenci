@@ -12,15 +12,15 @@ function setup_keys()
 
 function setup_database_connection
 {
-    sed -i "s|'NAME': '.*',$|'NAME': '$DB_NAME'" \
+    sed -i "s|'NAME': '.*',$|'NAME': '$DB_NAME'|" \
         "$TENDENCI_INSTALL_DIR/$APP_NAME/conf/local_settings.py"
-    sed -i "s|'HOST': '.*',$|'HOST': '$DB_HOST'" \
+    sed -i "s|'HOST': '.*',$|'HOST': '$DB_HOST'|" \
         "$TENDENCI_INSTALL_DIR/$APP_NAME/conf/local_settings.py"
-    sed -i "s|'USER': '.*',$|'USER': '$DB_USER'" \
+    sed -i "s|'USER': '.*',$|'USER': '$DB_USER'|" \
         "$TENDENCI_INSTALL_DIR/$APP_NAME/conf/local_settings.py"
-    sed -i "s|'PASSWORD': '.*',$|'PASSWORD': '$DB_PASS'" \
+    sed -i "s|'PASSWORD': '.*',$|'PASSWORD': '$DB_PASS'|" \
         "$TENDENCI_INSTALL_DIR/$APP_NAME/conf/local_settings.py"
-    sed -i "s|'PORT': '.*',$|'PORT': '$DB_PORT'" \
+    sed -i "s|'PORT': '.*',$|'PORT': '$DB_PORT'|" \
         "$TENDENCI_INSTALL_DIR/$APP_NAME/conf/local_settings.py"
 }
 

@@ -9,14 +9,14 @@ services:
         environment:
             - DB_USER=tendenci
             - DB_NAME=tendenci
-            - DB_PASS=password
+            - DB_PASS=A6hDJKhAvGjr
             - DB_EXTENSION=postgis,postgis_topology,fuzzystrmatch,postgis_tiger_geocoder
         networks:
             - backend
 
     tendenci:
         restart: always
-        image: frenchbeard/tendenci:0.1.0
+        image: kiwilightweight/tendenci
         volumes:
             - /srv/docker/tendenci/app/logs:/var/log/tendenci:Z
             - /srv/docker/tendenci/app/data:/home/tendenci/data:Z
@@ -30,14 +30,14 @@ services:
             # Postgresql setup
             - DB_USER=tendenci
             - DB_NAME=tendenci
-            - DB_PASS=password
+            - DB_PASS=A6hDJKhAvGjrA6hDJKhAvGjr
             - DB_HOST=postgresql
             - DB_PORT=5432
 
             # Superuser setup
             - ADMIN_USER=admin
-            - ADMIN_MAIL=admin@example.com
-            - ADMIN_PASS=password
+            - ADMIN_MAIL=dave@davelane.nz
+            - ADMIN_PASS=CBRrjV4WwjAE
 
 networks:
     backend:
