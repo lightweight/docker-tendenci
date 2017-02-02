@@ -38,13 +38,14 @@ function initial_setup
     [ -f "$TENDENCI_HOME/first_run" ] && return
     setup_keys
     cd "$TENDENCI_INSTALL_DIR/$APP_NAME" \
-        && bash -x migrate_initials.sh \
         && python deploy.py \
         && python manage.py load_base_defaults \
         && python manage.py load_npo_defaults
     superuser
     touch "$TENDENCI_HOME/first_run"
 }
+#    cd "$TENDENCI_INSTALL_DIR/$APP_NAME" \
+#        && bash -x migrate_initials.sh \
 
 function run
 {

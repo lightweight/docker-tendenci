@@ -37,11 +37,8 @@ function check_user()
     fi
 
     chmod u+x "${TENDENCI_RUNTIME_DIR}/entrypoint.sh"
-# # Set environment (fixes runtime issues with virtualenv)
-# cat >> "${TENDENCI_HOME}"/.bashrc <<EOF
-# [[ -f ~/runtime/env-defaults ]] && source ~/runtime/env-defaults
-# PATH=\${TENDENCI_VIRTUALENV}/bin:/usr/local/sbin:/usr/local/bin:\$PATH
-# EOF
+    # Set environment (fixes runtime issues with virtualenv)
+    echo "[[ -f ~/runtime/env-defaults ]] && source ~/runtime/env-defaults\nPATH=\${TENDENCI_VIRTUALENV}/bin:/usr/local/sbin:/usr/local/bin:\$PATH" > "${TENDENCI_HOME}"/.bashrc
 }
 
 function install_jpeg_9
